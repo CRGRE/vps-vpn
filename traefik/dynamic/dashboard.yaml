@@ -1,0 +1,16 @@
+http:
+  routers:
+    dashboard:
+      entryPoints:
+        - websecure
+      rule: Host(`petchup.ddns.net`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))
+      service: api@internal
+      middlewares:
+        - traefikAuth
+      # tls:
+      #   options:
+  middlewares:
+    traefikAuth:
+      basicAuth:
+        users:
+          - "traefik-admin:$apr1$fei03aqb$m7UnbY25BBcKdHinruhXs1" # Traefik@984756_Password

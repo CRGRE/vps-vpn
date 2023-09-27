@@ -1,0 +1,13 @@
+http:
+  routers:
+    wg-easy:
+      entryPoints:
+        - websecure
+      rule: Host(`petchup.ddns.net`)
+      service: wg-easy
+      # tls:
+      #   options:
+  services:
+    wg-easy:
+      servers:
+        - url: "http://localhost:51820/"

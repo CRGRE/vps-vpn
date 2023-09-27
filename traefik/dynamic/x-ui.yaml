@@ -1,0 +1,14 @@
+http:
+  routers:
+    x-ui:
+      entryPoints:
+        - websecure
+      rule: Host(`petchup.ddns.net`) && (PathPrefix(`/xui`)
+      service: x-ui
+      # tls:
+      #   options:
+  services:
+    x-ui:
+      loadBalancer:
+        servers:
+          - url: "http://localhost:54321/"
