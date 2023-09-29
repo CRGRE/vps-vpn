@@ -24,6 +24,8 @@ spec:
       ports:
         - containerPort: 443
           hostPort: 30443
+        - containerPort: 54321
+          hostPort: 54321
       volumeMounts:
         - name: x-ui
           mountPath: /etc/x-ui

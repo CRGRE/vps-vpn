@@ -9,7 +9,7 @@ firewall-cmd --permanent --zone=vpnserver --set-target=DROP
 firewall-cmd --permanent --zone=vpnserver --add-service=http
 firewall-cmd --permanent --zone=vpnserver --add-service=https
 firewall-cmd --permanent --zone=vpnserver --add-service=ssh
-firewall-cmd --permanent --zone=vpnserver --add-port=61433/tcp
+firewall-cmd --permanent --zone=vpnserver --add-port=61443/tcp
 firewall-cmd --permanent --zone=vpnserver --add-port=30022/tcp
 firewall-cmd --permanent --zone=vpnserver --add-port=61000-61099/tcp
 firewall-cmd --permanent --zone=vpnserver --add-port=61000-61099/udp
