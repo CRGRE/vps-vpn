@@ -31,8 +31,8 @@ spec:
     - name: traefik
       hostPath:
         type: DirectoryOrCreate
-        path: /opt/vpn/traefik
+        path: /opt/vpn/vps-vpn/traefik
     - name: x-ui
       hostPath:
         type: DirectoryOrCreate
-        path: /opt/vpn/x-ui
+        path: /opt/vpn/vps-vpn/x-ui
