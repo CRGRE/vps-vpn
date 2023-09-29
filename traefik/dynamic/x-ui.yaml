@@ -3,7 +3,7 @@ http:
     x-ui:
       entryPoints:
         - websecure
-      rule: Host(`petchup.ddns.net`) && (PathPrefix(`/xui`)
+      rule: Host(`petchup.ddns.net`) && PathPrefix(`/xui`)
       service: x-ui
       # tls:
       #   options:
