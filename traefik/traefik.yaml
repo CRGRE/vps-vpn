@@ -10,10 +10,11 @@ entryPoints:
     http:
       redirections:
         entryPoint:
-          to: "websecure"
+          # to: "websecure"
+          to: ":443" # to x-ui main port
           scheme: "https"
   websecure:
-    address: ":443"
+    address: ":61443"
     http:
       tls:
         certResolver: letsEncrypt
@@ -24,7 +25,7 @@ certificatesResolvers:
     acme:
       email: "petr30032001@gmail.com"
       storage: "/etc/traefik/acme.json"
-      # caServer: "https://acme-staging-v02.api.letsencrypt.org/directory"
+      caServer: "https://acme-staging-v02.api.letsencrypt.org/directory"
       httpChallenge:
         entryPoint: web
 

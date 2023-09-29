@@ -6,6 +6,16 @@ metadata:
     app: vpnserver
 spec:
   containers:
+    - name: traefik
+      image: docker.io/traefik:latest
+      ports:
+        - containerPort: 80
+          hostPort: 30080
+        - containerPort: 61443
+          hostPort: 61443
+      volumeMounts:
+        - name: traefik
+          mountPath: /etc/traefik
     - name: x-ui
       image: docker.io/alireza7/x-ui:latest
       env:
@@ -13,12 +23,15 @@ spec:
           value: false
       ports:
         - containerPort: 443
-          hostPort: 443
-          protocol: TCP
+          hostPort: 30443
       volumeMounts:
         - name: x-ui
           mountPath: /etc/x-ui
   volumes:
+    - name: traefik
+      hostPath:
+        type: DirectoryOrCreate
+        path: /opt/vpn/traefik
     - name: x-ui
       hostPath:
         type: DirectoryOrCreate

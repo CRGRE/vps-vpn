@@ -4,7 +4,7 @@ passwd
 dnf upgrade -y
 # reboot
 
-dnf install mc nano git nmap-ncat curl sudo bind-utils sqlite -y
+dnf install mc nano git nmap-ncat curl sudo bind-utils sqlite zip unzip tar -y
 
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.rpm.sh | bash
 dnf install speedtest -y
