@@ -4,6 +4,9 @@ log:
 api:
   dashboard: true
 
+accessLog:
+  format: json
+
 entryPoints:
   web:
     address: ":80"
