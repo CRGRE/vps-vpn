@@ -23,8 +23,6 @@ spec:
           value: false
         - name: XUI_LOG_LEVEL
           value: debug
-        - name: XUI_DEBUG
-          value: true
       ports:
         - containerPort: 443
           hostPort: 30443
