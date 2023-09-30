@@ -3,10 +3,10 @@ http:
     x-ui:
       entryPoints:
         - websecure
-      rule: Host(`petchup.ddns.net`) && PathPrefix(`/x-ui/`)
+      rule: Host(`petchup.ddns.net`) && PathPrefix(`/x-ui`)
       service: x-ui
-      middlewares:
-        - x-ui-stripprefix
+      # middlewares:
+      #   - x-ui-stripprefix
       # tls:
       #   options:
   services:
@@ -14,8 +14,8 @@ http:
       loadBalancer:
         servers:
           - url: "http://localhost:54321/"
-  middlewares:
-    x-ui-stripprefix:
-      stripPrefix:
-        prefixes:
-          - "/x-ui"
+  # middlewares:
+  #   x-ui-stripprefix:
+  #     stripPrefix:
+  #       prefixes:
+  #         - "/x-ui"
