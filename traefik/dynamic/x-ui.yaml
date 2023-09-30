@@ -3,7 +3,7 @@ http:
     x-ui:
       entryPoints:
         - websecure
-      rule: Host(`petchup.ddns.net`) && PathPrefix(`/x-ui`)
+      rule: Host(`petchup.ddns.net`) && PathPrefix(`/x-ui/`)
       service: x-ui
       middlewares:
         - x-ui-stripprefix
