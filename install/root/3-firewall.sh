@@ -6,17 +6,20 @@ firewall-cmd --permanent --new-zone=vpnserver
 
 firewall-cmd --permanent --zone=vpnserver --set-target=DROP
 
-firewall-cmd --permanent --zone=vpnserver --add-service=http
-firewall-cmd --permanent --zone=vpnserver --add-service=https
-firewall-cmd --permanent --zone=vpnserver --add-service=ssh
-firewall-cmd --permanent --zone=vpnserver --add-port=61443/tcp
-firewall-cmd --permanent --zone=vpnserver --add-port=30022/tcp
-firewall-cmd --permanent --zone=vpnserver --add-port=61000-61099/tcp
-firewall-cmd --permanent --zone=vpnserver --add-port=61000-61099/udp
+firewall-cmd --permanent --zone=vpnserver --add-port=65122/tcp
+firewall-cmd --permanent --zone=vpnserver --add-port=22/tcp
+firewall-cmd --permanent --zone=vpnserver --add-port=80/tcp
+firewall-cmd --permanent --zone=vpnserver --add-port=65432/tcp
+firewall-cmd --permanent --zone=vpnserver --add-port=443/tcp
+firewall-cmd --permanent --zone=vpnserver --add-port=443/udp
+firewall-cmd --permanent --zone=vpnserver --add-port=65433/tcp
+firewall-cmd --permanent --zone=vpnserver --add-port=65434/tcp
 
 firewall-cmd --permanent --zone=vpnserver --add-masquerade
-firewall-cmd --permanent --zone=vpnserver --add-forward-port=port=80:proto=tcp:toport=30080
-firewall-cmd --permanent --zone=vpnserver --add-forward-port=port=443:proto=tcp:toport=30443
+firewall-cmd --permanent --zone=vpnserver --add-forward-port=port=22:proto=tcp:toport=65022
+firewall-cmd --permanent --zone=vpnserver --add-forward-port=port=80:proto=tcp:toport=65080
+firewall-cmd --permanent --zone=vpnserver --add-forward-port=port=443:proto=tcp:toport=65443
+firewall-cmd --permanent --zone=vpnserver --add-forward-port=port=443:proto=udp:toport=65443
 
 firewall-cmd --reload
 firewall-cmd --set-default-zone=vpnserver

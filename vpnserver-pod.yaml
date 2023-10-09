@@ -6,37 +6,35 @@ metadata:
     app: vpnserver
 spec:
   containers:
-    - name: traefik
-      image: docker.io/traefik:latest
+    - name: redirect
+      image: docker.io/morbz/docker-web-redirect
       ports:
         - containerPort: 80
-          hostPort: 30080
-        - containerPort: 61443
-          hostPort: 61443
-      volumeMounts:
-        - name: traefik
-          mountPath: /etc/traefik
+          hostPort: 65080
     - name: x-ui
       image: docker.io/alireza7/x-ui:latest
       env:
         - name: XRAY_VMESS_AEAD_FORCED
           value: false
-        - name: XUI_LOG_LEVEL
-          value: debug
       ports:
         - containerPort: 443
-          hostPort: 30443
-        - containerPort: 54321
+          hostPort: 65443
+        - containerPort: 443
+          hostPort: 65443
+          protocol: UDP
+        - containerPort: 65432
           hostPort: 54321
       volumeMounts:
         - name: x-ui
           mountPath: /etc/x-ui
+        - name: certs
+          mountPath: /certs
   volumes:
-    - name: traefik
-      hostPath:
-        type: DirectoryOrCreate
-        path: /opt/vpn/vps-vpn/traefik
     - name: x-ui
       hostPath:
         type: DirectoryOrCreate
         path: /opt/vpn/vps-vpn/x-ui
+    - name: certs
+      hostPath:
+        type: DirectoryOrCreate
+        path: /opt/vpn/vps-vpn/certs
