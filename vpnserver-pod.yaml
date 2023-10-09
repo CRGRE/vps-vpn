@@ -10,7 +10,7 @@ spec:
       image: docker.io/morbz/docker-web-redirect
       env:
         - name: REDIRECT_TARGET
-          value: petchup.ddns.net
+          value: https://petchup.ddns.net/
       ports:
         - containerPort: 80
           hostPort: 65080
