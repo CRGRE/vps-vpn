@@ -22,8 +22,8 @@ spec:
         - containerPort: 443
           hostPort: 65443
           protocol: UDP
-        - containerPort: 65432
-          hostPort: 54321
+        - containerPort: 54321
+          hostPort: 65432
       volumeMounts:
         - name: x-ui
           mountPath: /etc/x-ui
