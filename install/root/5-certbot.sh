@@ -12,7 +12,7 @@ certbot certonly -d petchup.ddns.net --standalone \
     --server https://acme-staging-v02.api.letsencrypt.org/directory
 
 PODMAN_USER="vpn"
-if id "$1" >/dev/null 2>&1
+if id "$PODMAN_USER" >/dev/null 2>&1
     then
         CERTBOT_HOOKS_PATH="$(eval realpath ~$PODMAN_USER/vps-vpn/certbot)"
         certbot renew --pre-hook $CERTBOT_HOOKS_PATH/pre-hook.sh --post-hook $CERTBOT_HOOKS_PATH/post-hook.sh
